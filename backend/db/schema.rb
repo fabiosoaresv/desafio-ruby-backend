@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_135119) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
-    t.integer "number_card"
-    t.integer "cpf"
+    t.string "number_card"
+    t.string "cpf"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -31,12 +31,16 @@ ActiveRecord::Schema.define(version: 2021_02_23_135119) do
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.integer "type"
+    t.integer "type_transaction"
     t.string "nature"
     t.boolean "signal"
     t.float "value"
+    t.bigint "customer_id"
+    t.bigint "provider_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["customer_id"], name: "index_transactions_on_customer_id"
+    t.index ["provider_id"], name: "index_transactions_on_provider_id"
   end
 
 end
