@@ -6,6 +6,8 @@ class Importer
   end
 
   def import_and_create_data
+    return false unless file
+
     file.each do |line|
       data = convert_line_to_hash(line)
       provider = find_or_create_provider(data['provider'])
@@ -14,6 +16,8 @@ class Importer
 
       Transaction.create(data_transaction)
     end
+
+    true
   end
 
   private
