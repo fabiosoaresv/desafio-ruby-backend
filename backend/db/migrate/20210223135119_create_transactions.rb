@@ -5,6 +5,8 @@ class CreateTransactions < ActiveRecord::Migration[6.1]
       t.string :nature
       t.boolean :signal
       t.float :value
+      t.date :date_transaction
+      t.time :hour
       t.belongs_to :customer
       t.belongs_to :provider
       t.timestamps
