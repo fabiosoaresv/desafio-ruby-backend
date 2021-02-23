@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 2021_02_23_135119) do
   enable_extension "plpgsql"
 
   create_table "customers", force: :cascade do |t|
-    t.string "number_card"
     t.string "cpf"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -35,7 +34,8 @@ ActiveRecord::Schema.define(version: 2021_02_23_135119) do
     t.boolean "signal"
     t.float "value"
     t.date "date_transaction"
-    t.time "hour"
+    t.string "hour"
+    t.string "number_card"
     t.bigint "customer_id"
     t.bigint "provider_id"
     t.datetime "created_at", precision: 6, null: false

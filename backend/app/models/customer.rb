@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   validate :valid_register, on: [ :create ]
 
   def valid_cpf
-    return errors.add(:base, "CPF #{self.cpf} inválido.") unless CPF.valid?(self.cpf.to_i)
+    return errors.add(:base, "CPF #{self.cpf} inválido.") unless CPF.valid?(self.cpf)
   end
 
   def valid_register
