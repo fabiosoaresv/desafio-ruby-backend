@@ -1,14 +1,15 @@
 class Importer
-  attr_reader :file
+  attr_reader :read_file, :open_file
 
   def initialize(file)
-    @file = File.open(file)&.readlines
+    @open_file = File.open(file)
+    @read_file = @open_file&.readlines
   end
 
   def import_and_create_data
-    return false unless file
+    return false unless is_valid_extension?(open_file)
 
-    file.each do |line|
+    read_file.each do |line|
       data = convert_line_to_hash(line)
       provider = find_or_create_provider(data['provider'])
       customer = find_or_create_customer(data['customer'])
@@ -21,6 +22,11 @@ class Importer
   end
 
   private
+
+  def is_valid_extension?(file)
+    return true if File.extname(file).match(/txt|csv/)
+    false
+  end
 
   def find_or_create_provider(provider)
     object = Provider.find_by(name_provider: provider[:name_provider])
