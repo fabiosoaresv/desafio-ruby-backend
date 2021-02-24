@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+  afuConfig = {
+      formatsAllowed: ".txt,.csv",
+      maxSize: "5",
+      uploadAPI: {
+        url:"http://localhost:3000/api/v1/importer/import_file",
+        method: 'POST'
+      },
+    theme: "dragNDrop",
+    multiple: false
+  };
 }
