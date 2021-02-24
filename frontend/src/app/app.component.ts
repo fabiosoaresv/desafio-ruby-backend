@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+
+export class AppComponent implements OnInit {
   afuConfig = {
       formatsAllowed: ".txt,.csv",
       maxSize: "5",
@@ -16,4 +18,14 @@ export class AppComponent {
     theme: "dragNDrop",
     multiple: false
   };
+
+  constructor(private http: HttpClient) { }
+
+  totalAngularPackages;
+
+  ngOnInit() {
+    this.http.get<any>('http://localhost:3000/api/v1/transactions').subscribe(data => {
+      this.totalAngularPackages = data.transactions;
+    })
+  }
 }

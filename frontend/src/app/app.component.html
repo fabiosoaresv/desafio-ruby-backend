@@ -1,3 +1,24 @@
+<div>
+<h2> Lista de Saldo Total </h2>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Nome da Loja</th>
+      <th>Nome do Proprietário</th>
+      <th>Saldo Total</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let course of totalAngularPackages'>
+      <td>{{ course.provider_name }}</td>
+      <td>{{ course.provider_owner }}</td>
+      <td>{{ course.total_balance }}</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 <angular-file-uploader
       [config]="afuConfig">
 </angular-file-uploader>
