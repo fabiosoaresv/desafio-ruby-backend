@@ -5,7 +5,7 @@ module Api::V1
     skip_before_action :verify_authenticity_token
     before_action :importer_params
 
-    def create
+    def import_file
       key_file = params.keys.reject { |x| ['action', 'controller'].include?(x) }&.first
       path = params[key_file]&.path
 

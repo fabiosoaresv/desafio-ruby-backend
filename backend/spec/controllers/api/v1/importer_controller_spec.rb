@@ -6,7 +6,7 @@ RSpec.describe 'Api::V1::ImporterController', type: :request do
     let!(:file) { Rack::Test::UploadedFile.new(path) }
 
     it 'return successful' do
-      post '/api/v1/importer', params: { file: file }
+      post '/api/v1/importer/import_file', params: { file: file }
       json_response = JSON.parse(@response.body)
 
       expect(@response.code).to eq('200')
@@ -22,7 +22,7 @@ RSpec.describe 'Api::V1::ImporterController', type: :request do
     let!(:file) { Rack::Test::UploadedFile.new(path) }
 
     it 'return fails' do
-      post '/api/v1/importer', params: { file: file }
+      post '/api/v1/importer/import_file', params: { file: file }
       json_response = JSON.parse(@response.body)
 
       expect(json_response).to eq({
