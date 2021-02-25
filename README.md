@@ -21,7 +21,7 @@ Resolvido no projeto do backend, através do service Importer, onde o mesmo, int
 
 #### Tarefa 3 - Exibir uma lista das operações importadas por lojas, e nesta lista deve conter um totalizador do saldo em conta
 
-Resolvido na tela inicial do projeto frontend, onde foi disponibilizado um endpoint GET no projeto backend (**api/v1/transactions**) para listar a relação dos Fornecedor e o total de saldo em contas das transações realizadas.
+Resolvido na tela inicial do projeto frontend, onde foi disponibilizado um endpoint GET no projeto backend (**api/v1/transactions**) para listar a relação do Fornecedor e o total de saldo em conta das transações realizadas.
 
 #### Tarefa 4 - Ser escrita obrigatoriamente em Ruby 2.0+
 O projeto foi desenvolvido na versão **2.7.1p83**.
@@ -29,7 +29,7 @@ O projeto foi desenvolvido na versão **2.7.1p83**.
 #### Tarefa 5 - Ser simples de configurar e rodar, funcionando em ambiente compatível com Unix (Linux ou Mac OS X). Ela deve utilizar apenas linguagens e bibliotecas livres ou gratuitas.
 Contemplado e descrito no tópico **Teclogias e versões**.
 
-### Configuração dos projetos
+### Setup dos projetos
 #### Setup Backend com Docker
 ```console
 $ cd backend
