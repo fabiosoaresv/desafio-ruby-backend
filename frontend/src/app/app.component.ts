@@ -23,9 +23,14 @@ export class AppComponent implements OnInit {
 
   totalAngularPackages;
 
-  ngOnInit() {
+  load(event? : any) {
     this.http.get<any>('http://localhost:3000/api/v1/transactions').subscribe(data => {
       this.totalAngularPackages = data.transactions;
-    })
+      alert(event.body.message);
+    });
+  }
+
+  ngOnInit() {
+    this.load();
   }
 }

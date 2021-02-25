@@ -20,5 +20,6 @@
 </div>
 
 <angular-file-uploader
-      [config]="afuConfig">
+      [config]="afuConfig"
+      (ApiResponse)="load($event)">
 </angular-file-uploader>
